@@ -60,7 +60,7 @@ string scoobyPhrase(const string &phrase) {
 */
 string scoobyWord(const string &word){
 	int i;
-	for (i = 0; isalpha(word[i]) && !isVowel(word[i + 1]) && (i + 1) < word.length(); i++) { //iterate past leading consonants until we have a consonant followed by a vowel
+	for (i = 0; isalpha(word[i]) && (i + 1) < word.length() && !isVowel(word[i + 1]); i++) { //iterate past leading consonants until we have a consonant followed by a vowel
 		if (isVowel(word[i]))
 			return word;
 	}
@@ -75,5 +75,6 @@ string scoobyWord(const string &word){
 }
 
 bool isVowel(char c) {
-	return toupper(c) == 'A' || toupper(c) == 'E' || toupper(c) == 'I' || toupper(c) == 'O' || toupper(c) == 'U';
+	char upperC = toupper(c);
+	return upperC == 'A' || upperC == 'E' || upperC == 'I' || upperC == 'O' || upperC == 'U';
 }
